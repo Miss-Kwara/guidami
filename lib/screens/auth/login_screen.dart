@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'signup_screen.dart'; 
+import 'package:guidami/screens/onboarding/role_selection_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
   @override
-  LoginScreenState createState() => LoginScreenState(); // return public class
+  LoginScreenState createState() => LoginScreenState();
 }
 
-class LoginScreenState extends State<LoginScreen> { // changed from _LoginScreenState
+class LoginScreenState extends State<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -113,8 +114,10 @@ class LoginScreenState extends State<LoginScreen> { // changed from _LoginScreen
               ElevatedButton(
                 onPressed: () {
                   if (_formKey.currentState?.validate() ?? false) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text('Logging in...')),
+                    // Navigate to RoleSelectionScreen after successful login
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(builder: (context) => const RoleSelectionScreen()),
                     );
                   }
                 },

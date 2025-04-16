@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'login_screen.dart'; // Make sure to replace with your actual login screen file path
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -140,7 +141,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     const Text("Already have an account? "),
                     GestureDetector(
                       onTap: () {
-                        // Navigator.push to login screen
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const LoginScreen()),
+                        );
                       },
                       child: Text(
                         "Log In",

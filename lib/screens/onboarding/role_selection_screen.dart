@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:guidami/screens/auth/login_screen.dart';
+import 'package:guidami/screens/auth/dashboard/mentor_dashboard.dart';
+import 'package:guidami/screens/auth/dashboard/mentee_dashboard.dart';
 
 class RoleSelectionScreen extends StatelessWidget {
   const RoleSelectionScreen({super.key});
@@ -49,10 +50,11 @@ class RoleSelectionScreen extends StatelessWidget {
                     ),
                     child: ElevatedButton(
                       onPressed: () {
+                        // Navigate to Mentor Dashboard after login
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const LoginScreen(),
+                            builder: (context) => const MentorDashboard(),
                           ),
                         );
                       },
@@ -73,7 +75,7 @@ class RoleSelectionScreen extends StatelessWidget {
                     ),
                   ),
 
-                  // Mentee Box
+                  // Mentee Box (You can similarly link to a mentee dashboard later)
                   Container(
                     decoration: BoxDecoration(
                       color: Colors.white,
@@ -82,10 +84,11 @@ class RoleSelectionScreen extends StatelessWidget {
                     ),
                     child: ElevatedButton(
                       onPressed: () {
+                        // Navigate to Mentee Dashboard
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const LoginScreen(),
+                            builder: (context) => const MenteeDashboard(),
                           ),
                         );
                       },

@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:guidami/screens/auth/login_screen.dart';  // Import the login screen
+import 'package:guidami/routes/app_routes.dart';
+import 'package:guidami/screens/auth/login_screen.dart';
+import 'package:guidami/screens/onboarding/role_selection_screen.dart';
+import 'package:guidami/screens/auth/dashboard/mentor_dashboard.dart';
+import 'package:guidami/screens/auth/dashboard/mentee_dashboard.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +19,13 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const LoginScreen(), // Set the LoginScreen as the home
+      initialRoute: AppRoutes.login,
+      routes: {
+        AppRoutes.login: (context) => const LoginScreen(),
+        AppRoutes.roleSelection: (context) => const RoleSelectionScreen(),
+        AppRoutes.mentorDashboard: (context) => const MentorDashboard(),
+        AppRoutes.menteeDashboard: (context) => const MenteeDashboard(),
+      },
     );
   }
 }

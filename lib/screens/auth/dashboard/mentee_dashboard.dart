@@ -12,40 +12,81 @@ class MenteeDashboard extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+        child: ListView(
           children: <Widget>[
             const Text(
-              'Welcome to your Mentee Dashboard!',
+              'Welcome, Mentee!',
               style: TextStyle(
-                fontSize: 24,
+                fontSize: 26,
                 fontWeight: FontWeight.bold,
                 color: Colors.purple,
               ),
             ),
-            const SizedBox(height: 40),
-            const Text(
-              'Here, you can connect with your mentor, track your progress, and much more.',
-              style: TextStyle(
-                fontSize: 18,
-                color: Colors.grey,
+            const SizedBox(height: 20),
+
+            // View Mentor Info
+            Card(
+              child: ListTile(
+                leading: const Icon(Icons.person, color: Colors.purple),
+                title: const Text('Your Mentor'),
+                subtitle: const Text('View mentor details'),
+                onTap: () {
+                  // Navigate to mentor details
+                },
               ),
-              textAlign: TextAlign.center,
             ),
-            const SizedBox(height: 40),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.purple, // Button color
+
+            // Join/View Group
+            Card(
+              child: ListTile(
+                leading: const Icon(Icons.group, color: Colors.purple),
+                title: const Text('Your Group'),
+                subtitle: const Text('Join or view your mentee group'),
+                onTap: () {
+                  // Navigate to group screen
+                },
               ),
-              onPressed: () {
-                // Navigate to another screen, like a chat screen, or progress tracking
-                // Navigator.push(context, MaterialPageRoute(builder: (context) => SomeOtherScreen()));
-              },
-              child: const Text('Connect with Mentor'),
+            ),
+
+            // Book a Session
+            Card(
+              child: ListTile(
+                leading: const Icon(Icons.calendar_month, color: Colors.purple),
+                title: const Text('Book a Session'),
+                subtitle: const Text('Schedule a time with your mentor'),
+                onTap: () {
+                  // Navigate to booking screen
+                },
+              ),
+            ),
+
+            // Chat with Mentor
+            Card(
+              child: ListTile(
+                leading: const Icon(Icons.chat, color: Colors.purple),
+                title: const Text('Chat with Mentor'),
+                subtitle: const Text('Start a conversation'),
+                onTap: () {
+                  // Navigate to chat screen
+                },
+              ),
+            ),
+
+            // View Progress / Sessions
+            Card(
+              child: ListTile(
+                leading: const Icon(Icons.bar_chart, color: Colors.purple),
+                title: const Text('View Progress'),
+                subtitle: const Text('Track your mentorship journey'),
+                onTap: () {
+                  // Navigate to progress screen
+                },
+              ),
             ),
           ],
         ),
       ),
+      backgroundColor: Colors.purple.shade50,
     );
   }
 }
